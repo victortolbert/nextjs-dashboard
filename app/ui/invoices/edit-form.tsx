@@ -1,21 +1,21 @@
-'use client';
+'use client'
 
-import { CustomerField, InvoiceForm } from '@/app/lib/definitions';
 import {
   CheckIcon,
   ClockIcon,
   CurrencyDollarIcon,
   UserCircleIcon,
-} from '@heroicons/react/24/outline';
-import Link from 'next/link';
-import { Button } from '@/app/ui/button';
+} from '@heroicons/react/24/outline'
+import Link from 'next/link'
+import type { CustomerField, InvoiceForm } from '@/app/lib/definitions'
+import { Button } from '@/app/ui/button'
 
 export default function EditInvoiceForm({
   invoice,
   customers,
 }: {
-  invoice: InvoiceForm;
-  customers: CustomerField[];
+  invoice: InvoiceForm
+  customers: CustomerField[]
 }) {
   return (
     <form>
@@ -35,7 +35,7 @@ export default function EditInvoiceForm({
               <option value="" disabled>
                 Select a customer
               </option>
-              {customers.map((customer) => (
+              {customers.map(customer => (
                 <option key={customer.id} value={customer.id}>
                   {customer.name}
                 </option>
@@ -86,7 +86,9 @@ export default function EditInvoiceForm({
                   htmlFor="pending"
                   className="ml-2 flex cursor-pointer items-center gap-1.5 rounded-full bg-gray-100 px-3 py-1.5 text-xs font-medium text-gray-600"
                 >
-                  Pending <ClockIcon className="h-4 w-4" />
+                  Pending
+                  {' '}
+                  <ClockIcon className="h-4 w-4" />
                 </label>
               </div>
               <div className="flex items-center">
@@ -102,7 +104,9 @@ export default function EditInvoiceForm({
                   htmlFor="paid"
                   className="ml-2 flex cursor-pointer items-center gap-1.5 rounded-full bg-green-500 px-3 py-1.5 text-xs font-medium text-white"
                 >
-                  Paid <CheckIcon className="h-4 w-4" />
+                  Paid
+                  {' '}
+                  <CheckIcon className="h-4 w-4" />
                 </label>
               </div>
             </div>
@@ -119,5 +123,5 @@ export default function EditInvoiceForm({
         <Button type="submit">Edit Invoice</Button>
       </div>
     </form>
-  );
+  )
 }
